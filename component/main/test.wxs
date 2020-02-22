@@ -1,0 +1,31 @@
+// 小程序的过滤器使用方式
+var wetherFilters = function (value){
+  if (!value) return value;
+  var _lowTem = value.indexOf('-') > -1;
+  var  _value = value.split(" ")[1];//切割为数组
+
+  _value = _lowTem ? '-' + _value : _value
+  return _value
+}
+var wetherType=function(value){
+  if(!value) return ''
+  if (value.indexOf('阴') !== -1) {
+    return 'http://kw.koznak.top/sources/img/gif/yintian.gif'
+  } else if (value.indexOf('雨') !== -1 ) {
+    return 'http://kw.koznak.top/sources/img/gif/yu.gif'
+  } else if (value.indexOf('晴') !== -1) {
+    return 'http://kw.koznak.top/sources/img/gif/qing.gif'
+  } else if (value.indexOf('雪') !== -1) {
+    return 'http://kw.koznak.top/sources/img/gif/xue.gif'
+  } else if (value.indexOf('风') !== -1) {
+    return 'http://kw.koznak.top/sources/img/gif/feng.gif'
+  } else if (value.indexOf('云')) {
+    return 'http://kw.koznak.top/sources/img/gif/duoyun.gif'
+  } else if (value.indexOf('雾') !== -1) {
+    return 'http://kw.koznak.top/sources/img/gif/wumai.gif'
+  }
+}
+module.exports={
+  wetherFilters: wetherFilters,
+  wetherType: wetherType
+}

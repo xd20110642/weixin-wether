@@ -1,0 +1,47 @@
+// 小程序过滤器
+// 过滤温度
+var wetherFilters = function (value) {
+  if (!value) return value;
+  var _lowTem = value.indexOf('-') > -1;
+  var _value = value.split(" ")[1];//切割为数组
+
+  _value = _lowTem ? '-' + _value : _value
+  return _value
+}
+// 过滤天气
+var wetherDate=function(value) {
+  if (!value) return '';
+  var  _data
+  if (value.indexOf('日') !== -1) {
+    _data = value.slice(3);
+  } else {
+    _data = value.slice(2);
+  }
+  return _data;
+}
+//返回状态icon
+var bgIcon=function(value){
+  var src=''
+  if(!value) return '';
+  if (value.indexOf('阴') !== -1) {
+    src='./img/yingtian@2x.png'
+  } else if (value.indexOf('雨') !== -1) {
+    src = './img/yu@2x.png'
+  } else if (value.indexOf('晴') !== -1) {
+    src = './img/qingtian@2x.png'
+  } else if (value.indexOf('雪') !== -1) {
+    src = './img/xue@2x.png'
+  } else if (value.indexOf('风') !== -1) {
+    src = './img/feng@2x.png'
+  } else if (value.indexOf('云') !== -1) {
+    src = './img/duoyun@2x.png'
+  } else if (value.indexOf('雾') !== -1) {
+    src = './img/wumai@2x.png'
+  }
+  return src;
+}
+module.exports = {
+  wetherFilters: wetherFilters,
+  wetherDate: wetherDate,
+  bgIcon: bgIcon
+}

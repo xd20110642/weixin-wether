@@ -1,0 +1,12 @@
+<!--component/main/main.wxml-->
+<!-- 引入过滤器 -->
+  <wxs module="dateFr" src="./test.wxs"></wxs>
+<!-- 主图背景 -->
+<view class="main">
+  <image src="{{dateFr.wetherType(todayInfo.type)}}" class="bg"></image>
+  <view class="box">
+   <view class="wendu">{{todayNow}}</view>
+   <text class="text">{{todayInfo.type}}</text>
+  <text class="qujian">{{dateFr.wetherFilters(todayInfo.low)}}~{{dateFr.wetherFilters(todayInfo.high)}}</text>
+  </view>
+</view>

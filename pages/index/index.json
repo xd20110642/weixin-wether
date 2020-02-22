@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "main":"/component/main/main",
+    "list":"/component/list/list"
+  }
+}

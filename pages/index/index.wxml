@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <main todayNow="{{nowWendu}}" todayInfo="{{listArr[0]}}"></main>
+  <list listArr="{{listArr}}"></list>
+  <view class="last-up">更新于{{nowTime}}</view>
+</view>

@@ -1,0 +1,19 @@
+<!--component/list/list.wxml-->
+<!-- 引入过滤器 -->
+<wxs module="dateFr" src="./list_fliter.wxs"></wxs>
+<view class="list">
+  <view class="list-item" wx:for="{{listArr}}" wx:key="{{index}}">
+    <view class="list-item-day" wx:if="{{index===0}}">
+      今天
+    </view>
+     <view class="list-item-day" wx:else>
+        {{dateFr.wetherDate(item.date)}}
+    </view>
+    <view class="list-item-icon">
+      <image src="{{dateFr.bgIcon(item.type)}}"></image>
+    </view>
+    <view class="list-item-qujian">
+     {{dateFr.wetherFilters(item.low)}}/{{dateFr.wetherFilters(item.high)}}
+    </view>
+  </view>
+</view>

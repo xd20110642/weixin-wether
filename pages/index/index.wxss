@@ -1,0 +1,13 @@
+/**index.wxss**/
+.last-up{
+  /* overflow: hidden; */
+  margin-top: 80rpx;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+  text-align: center;
+  /* height:22rpx; */
+font-size:22rpx;
+font-weight:400;
+color:rgba(0,0,0,1);
+line-height:70rpx;
+}
