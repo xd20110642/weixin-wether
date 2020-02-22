@@ -18,6 +18,7 @@ Page({
     nowTime:''
   },
   onLoad: function () {
+    // 获取地理位置授权
     this.handleGetUserLotion();
    
     
@@ -116,7 +117,6 @@ Page({
     const that=this;
     myAmapFun.getRegeo({
       success: function (data) {
-        //成功回调
         let { regeocodeData: { addressComponent: { district}}}=data[0];
         that.setData({
           city: district
@@ -130,7 +130,6 @@ Page({
         console.log("高德回调成功", district)
       },
       fail: function (info) {
-        // that.handleGetWetherInfo();
         //失败回调
         console.log('高德回调失败',info)
       }
@@ -140,7 +139,7 @@ Page({
     let obj = {
       city
     }
-    get('http://wthrcdn.etouch.cn/weather_mini', obj)
+    get('https://pw.crazyming.com/weather_mini', obj)
       .then(res => {
         let { wendu, forecast}=res;
         this.setData({
