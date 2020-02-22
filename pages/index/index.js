@@ -19,7 +19,7 @@ Page({
   },
   onLoad: function () {
     this.handleGetUserLotion();
-    this.handleGetRegeo()
+   
     
     let nian = new Date().getFullYear();
     let yue = new Date().getMonth() + 1;
@@ -93,12 +93,20 @@ Page({
           longitude:longitude,
           latitude: latitude
         })
+        that.handleGetRegeo()
         console.log("回调成功",res)
       },
       fail: function(res) {
+        // 修改导航条title
+        wx.setNavigationBarTitle({
+          title: `北京`
+        })
+        that.handleGetWetherInfo();
         console.log("回调失败", res)
       },
-      complete: function(res) {},
+      complete: function(res) {
+      
+      },
     })
   },
   /**
@@ -122,6 +130,7 @@ Page({
         console.log("高德回调成功", district)
       },
       fail: function (info) {
+        // that.handleGetWetherInfo();
         //失败回调
         console.log('高德回调失败',info)
       }

@@ -4,7 +4,7 @@ var wetherFilters = function (value){
   var _lowTem = value.indexOf('-') > -1;
   var  _value = value.split(" ")[1];//切割为数组
 
-  _value = _lowTem ? '-' + _value : _value
+  // _value = _lowTem ? '-' + _value : _value
   return _value
 }
 var wetherType=function(value){
