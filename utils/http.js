@@ -3,6 +3,10 @@
  */
 export function get(baseURL='',params=''){
   console.log("params", params)
+  wx.showLoading({
+    title: '加载中',
+  })
+
   return new Promise((resolve,reject) => {
     wx.request({
       url: baseURL,
@@ -21,7 +25,9 @@ export function get(baseURL='',params=''){
         console.log("res",res)
       },
       fail: function(res) {},
-      complete: function(res) {},
+      complete: function(res) {
+        wx.hideLoading()
+      },
     })
   })
 }

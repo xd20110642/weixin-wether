@@ -135,10 +135,14 @@ Page({
       }
     })
   },
+  /**
+   * 获取天气信息
+   */
   handleGetWetherInfo(city='北京'){
     let obj = {
       city
     }
+    wx.stopPullDownRefresh();
     get('https://pw.crazyming.com/weather_mini', obj)
       .then(res => {
         let { wendu, forecast}=res;
@@ -149,5 +153,34 @@ Page({
         console.log("回调成功", res)
       })
       .catch(Error => console.log('请求错误', Error))
+  },
+  /**
+   * 监听用户下来刷新
+   */
+  onPullDownRefresh(){
+    // 获取地理位置授权
+    this.handleGetUserLotion();
+
+
+    let nian = new Date().getFullYear();
+    let yue = new Date().getMonth() + 1;
+    let ri = new Date().getDate();
+    let xiaoshi = new Date().getHours()
+    let fen = new Date().getMinutes();
+    xiaoshi = xiaoshi < 10 ? `0${xiaoshi}` : xiaoshi
+    fen = fen < 10 ? `0${fen}` : fen
+    this.setData({
+      nowTime: `${nian}/${yue}/${ri} ${xiaoshi}:${fen}`
+    })
+      console.log("用户下拉刷新")
+  },
+  /**
+   * 用户分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '指尖预报,年轻人的第一个小程序',
+      path: '/page/index'
+    }
   }
 })
