@@ -31,7 +31,73 @@ Component({
   },
   observers:{
     'todayInfo'(oldvalue,newvalue){
-      console.log('oldvalue', oldvalue, 'newvalue', newvalue)
+      if (!oldvalue) return ''
+      let type=oldvalue.type;
+      if(!type) return '';
+      if (type.includes('阴')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#aed3f9',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      } else if (type.includes('雨')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#67bcff',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      } else if (type.includes('晴')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#efb629',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      } else if (type.includes('雪')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#9aa3c7',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      } else if (type.includes('风')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#ebd5ac',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      } else if (type.includes('云')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#3ab9f1',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      } else if (type.includes('雾')) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#9caab3',
+          animation: {
+            duration: 400,
+            timingFunc: 'easeIn'
+          }
+        })
+      }
     }
   }
 })
